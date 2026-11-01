@@ -1,7 +1,6 @@
-// Portada de Argentina en dos escenas, igual que la de Colombia (co-escenas.js) y globaltni.com/es: el carro en la
+// Portada de Argentina en dos escenas, como globaltni.com/es: el carro en la
 // 9 de Julio corre una vez completo, Buenos Aires al atardecer entra encima con un fundido de 0,8 s, corre 10 s y se
-// desvanece dejando el carro desde el inicio. No se detiene con «reducir movimiento» (decisión del dueño, como en
-// Colombia). Los dos videos se crean acá, después de preview.js, para que preview.js no los pause ni los ponga en bucle.
+// desvanece dejando el carro desde el inicio. No se detiene con «reducir movimiento» (decisión del dueño). Los dos videos se crean acá, después de preview.js, para que preview.js no los pause ni los ponga en bucle.
 (function () {
   var film = document.querySelector('#inicio .film');
   if (!film) return;
