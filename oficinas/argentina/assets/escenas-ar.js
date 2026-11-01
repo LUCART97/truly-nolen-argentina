@@ -1,5 +1,5 @@
 // Portada de Argentina en dos escenas, como globaltni.com/es: el carro en la
-// 9 de Julio corre una vez completo, Buenos Aires al atardecer entra encima con un fundido de 0,8 s, corre 10 s y se
+// 9 de Julio corre una vez completo, el mundo de Truly girando entra encima con un fundido de 0,8 s, corre 10 s y se
 // desvanece dejando el carro desde el inicio. No se detiene con «reducir movimiento» (decisión del dueño). Los dos videos se crean acá, después de preview.js, para que preview.js no los pause ni los ponga en bucle.
 (function () {
   var film = document.querySelector('#inicio .film');
@@ -21,7 +21,7 @@
   var mundo = video('', 2);
   var enMundo = false, cambiando = false;
   function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-  function cargar() { if (!mundo.getAttribute('src')) { mundo.src = grande ? '/truly-nolen-argentina/oficinas/argentina/assets/mundo-argentina-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/mundo-argentina-hd.mp4'; mundo.load(); } }
+  function cargar() { if (!mundo.getAttribute('src')) { mundo.src = '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4'; mundo.load(); } }
   function aMundo() {
     if (enMundo || cambiando) return; cambiando = true; cargar();
     mundo.currentTime = 0; play(mundo); mundo.style.opacity = '1';
