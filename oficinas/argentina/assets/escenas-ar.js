@@ -15,21 +15,25 @@
   }
   // 4K para las pantallas que lo pueden mostrar; HD para pantallas chicas.
   var grande = (window.innerWidth || 0) * (window.devicePixelRatio || 1) > 1920;
-  // Celular: hasta que exista un video vertical queda la foto fija (un video horizontal cortaría el carro).
-  if ((window.innerWidth || 0) <= 760) return;
-  var carro = video(grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-hd.mp4', 1);
+  // Celular: videos recortados al formato del teléfono (carro completo y el Obelisco, 720 px, livianos).
+  var movil = (window.innerWidth || 0) <= 760;
+  var inicio = document.getElementById('inicio');
+  var carro = video(movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-movil.mp4' : grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-hd.mp4', 1);
+  var MUNDO_SRC = movil ? '/truly-nolen-argentina/oficinas/argentina/assets/mundo-movil-ar.mp4' : '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4';
+  if (movil) { carro.style.objectPosition = '50% 50%'; }
   var mundo = video('', 2);
+  if (movil) { mundo.style.objectPosition = '50% 50%'; }
   var enMundo = false, cambiando = false;
   function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-  function cargar() { if (!mundo.getAttribute('src')) { mundo.src = '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4'; mundo.load(); } }
+  function cargar() { if (!mundo.getAttribute('src')) { mundo.src = MUNDO_SRC; mundo.load(); } }
   function aMundo() {
     if (enMundo || cambiando) return; cambiando = true; cargar();
-    mundo.currentTime = 0; play(mundo); mundo.style.opacity = '1';
+    mundo.currentTime = 0; play(mundo); mundo.style.opacity = '1'; if (inicio) inicio.classList.add('en-mundo');
     setTimeout(function () { carro.pause(); enMundo = true; cambiando = false; }, FUNDIDO * 1000);
   }
   function aCarro() {
     if (!enMundo || cambiando) return; cambiando = true;
-    carro.currentTime = 0; play(carro); mundo.style.opacity = '0';
+    carro.currentTime = 0; play(carro); mundo.style.opacity = '0'; if (inicio) inicio.classList.remove('en-mundo');
     setTimeout(function () { mundo.pause(); enMundo = false; cambiando = false; }, FUNDIDO * 1000);
   }
   carro.addEventListener('playing', function () { carro.style.opacity = '1'; }, { once: true });
