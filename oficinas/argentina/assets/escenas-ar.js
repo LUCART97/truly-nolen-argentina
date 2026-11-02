@@ -18,7 +18,7 @@
   // Celular: videos recortados al formato del teléfono (carro completo y el Obelisco, 720 px, livianos).
   var movil = (window.innerWidth || 0) <= 760;
   var inicio = document.getElementById('inicio');
-  var carro = video(movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-movil.mp4' : grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro7-hd.mp4', 1);
+  var carro = video(movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-movil.mp4' : grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-hd.mp4', 1);
   var MUNDO_SRC = movil ? '/truly-nolen-argentina/oficinas/argentina/assets/mundo-movil-ar.mp4' : '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4';
   if (movil) { carro.style.objectPosition = '50% 50%'; }
   var mundo = video('', 2);
