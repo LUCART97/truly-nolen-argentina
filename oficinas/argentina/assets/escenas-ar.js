@@ -4,7 +4,7 @@
 (function () {
   var film = document.querySelector('#inicio .film');
   if (!film) return;
-  var FUNDIDO = 0.8, MUNDO = 10, CARRO_FIN = 10;
+  var FUNDIDO = 0.8, MUNDO = 10, CARRO_FIN = 7;
 
   function video(src, z) {
     var v = document.createElement('video');
@@ -17,7 +17,7 @@
   var grande = (window.innerWidth || 0) * (window.devicePixelRatio || 1) > 1920;
   // Celular: hasta que exista un video vertical queda la foto fija (un video horizontal cortaría el carro).
   if ((window.innerWidth || 0) <= 760) return;
-  var carro = video(grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro3-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro3-hd.mp4', 1);
+  var carro = video(grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro4-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro4-hd.mp4', 1);
   var mundo = video('', 2);
   var enMundo = false, cambiando = false;
   function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
