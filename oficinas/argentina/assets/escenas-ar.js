@@ -13,13 +13,13 @@
     if (src) { v.preload = 'auto'; v.src = src; } else { v.preload = 'none'; }
     film.appendChild(v); return v;
   }
-  // 4K para las pantallas que lo pueden mostrar; HD para pantallas chicas.
+  // Receta (regla 9): el carro va en 4K en la web, sin excepción.
   var grande = (window.innerWidth || 0) * (window.devicePixelRatio || 1) > 1920;
   // Celular: videos recortados al formato del teléfono (carro completo y el Obelisco, 720 px, livianos).
   var movil = (window.innerWidth || 0) <= 760;
   var inicio = document.getElementById('inicio');
-  var carro = video(movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-movil.mp4' : grande ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-4k.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-hd.mp4', 1);
-  var MUNDO_SRC = movil ? '/truly-nolen-argentina/oficinas/argentina/assets/mundo-movil-ar.mp4' : '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4';
+  var carro = video(movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-movil.mp4' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-4k.mp4', 1);
+  var MUNDO_SRC = movil ? '/truly-nolen-argentina/oficinas/assets/mundo-movil.mp4?v=4k' : '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4?v=4k';
   if (movil) { carro.style.objectPosition = '50% 50%'; }
   var mundo = video('', 2);
   if (movil) { mundo.style.objectPosition = '50% 50%'; }
