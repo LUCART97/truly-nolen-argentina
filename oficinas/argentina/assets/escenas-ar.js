@@ -19,7 +19,7 @@
   var cel = (window.innerWidth || 0) <= 760;
   var movil = (window.innerWidth || 0) <= 960;
   var inicio = document.getElementById('inicio');
-  var carro = video(cel ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-movil.mp4?v=9x16' : movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-tableta.mp4?v=1834' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-4k.mp4', 1);
+  var carro = video(cel ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-movil.mp4?v=9x16b' : movil ? '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-tableta.mp4?v=1834' : '/truly-nolen-argentina/oficinas/argentina/assets/argentina-carro8-4k.mp4?v=x4plus', 1);
   var MUNDO_SRC = movil ? '/truly-nolen-argentina/oficinas/assets/mundo-movil.mp4?v=4k' : '/truly-nolen-argentina/oficinas/assets/mundo-desktop.mp4?v=4k';
   if (movil) { carro.style.objectPosition = '50% 50%'; }
   var mundo = video('', 2);
