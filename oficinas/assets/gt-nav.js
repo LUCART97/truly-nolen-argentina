@@ -133,3 +133,19 @@
   });
   dialog.addEventListener('close', () => lupa.focus());
 })();
+
+// Pie de globaltni (R11, R16): acordeones nativos en celular y tableta (≤959 px), mapa completo abierto en computadora.
+(() => {
+  const compact = matchMedia('(max-width: 959px)');
+  const groups = [...document.querySelectorAll('.footer-grid > details')];
+  if (!groups.length) return;
+  const sync = () => groups.forEach(group => {
+    group.open = !compact.matches;
+    group.querySelector('summary').tabIndex = compact.matches ? 0 : -1;
+  });
+  groups.forEach(group => group.querySelector('summary').addEventListener('click', event => {
+    if (!compact.matches) event.preventDefault();
+  }));
+  compact.addEventListener('change', sync);
+  sync();
+})();
